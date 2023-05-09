@@ -62,10 +62,6 @@ public class Round {
                     for (int i = 0; i < holes.length; i++) {
                         holes[i] = new Hole(3);
                     }
-                    holes[4] = new Hole(4);
-                    holes[8] = new Hole(4);
-                    holes[9] = new Hole(4);
-                    holes[14] = new Hole(5);
                     break;
                 case ("Hanover Community Center"):
                     this.courseName = courseName;
@@ -112,7 +108,7 @@ public class Round {
         if (finalScore > 0) {
             s = "+" + finalScore;
         } else if (finalScore < 0) {
-            s = "-" + finalScore;
+            s = "" + finalScore;
         } else {
             return "E";
         }

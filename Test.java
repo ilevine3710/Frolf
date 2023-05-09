@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
@@ -6,10 +7,11 @@ public class Test {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Round [] rounds = readFiles();
+        rounds = removePartial(rounds);
         boolean quit = false;
         do {
             printRounds(rounds);
-            System.out.println("Sort by: Name, Date, Course (or Quit)");
+            System.out.println("Sort by: Name, Date, Course, Score (or Quit)");
             String entry = scan.next();
             quit = sort(entry,rounds);
         } while (!quit);
@@ -89,6 +91,19 @@ public class Test {
                     array [index] = array [i];
                     array [i] = temp;
                 } return false;
+            case ("Score"):
+                for (int i = 0; i < array.length; i++) {
+                    Round min = array[i];
+                    int index = i;
+                    for (int j = i + 1; j < array.length; j++) {
+                        if (array [j].getFinalScore() < min.getFinalScore()) { // swap < to sort reverse
+                            min = array[j];
+                            index = j;
+                        }
+                    } Round temp = array [index];
+                    array [index] = array [i];
+                    array [i] = temp;
+                } return false;
             case ("Quit"):
                 return true;
             default:
@@ -105,5 +120,22 @@ public class Test {
         for (Round i: rounds) {
             System.out.println(i);
         }
-    } 
+    } public static Round [] removePartial (Round [] rounds) {
+        ArrayList<Round> removed = new ArrayList<>();
+        boolean partial = false;
+        for (int i = 0; i < rounds.length; i++) {
+            for (int j = 0; j < 18; j++) {
+                if (rounds[i].getHoles()[j].getScore() == 0) {
+                    partial = true;
+                }
+            } if (!partial) {
+                removed.add(rounds[i]);
+            } partial = false;
+        } 
+        Round [] newRound = new Round [removed.size()];
+        for (int i = 0; i < removed.size(); i++) {
+            newRound [i] = removed.get(i);
+        } 
+        return newRound;
+    }
 }
