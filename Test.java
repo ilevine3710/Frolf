@@ -9,35 +9,48 @@ public class Test {
         ArrayList<Round> rounds = readFiles();
         rounds = removePartial(rounds);
         boolean quit = false;
+        boolean course = false;
+        boolean player = false;
+        boolean hole = false;
         do {
             try {
-                System.out.println("Choose an option: ");
+                System.out.println("\nChoose an option: ");
                 System.out.println("Sort rounds: 1");
-                System.out.println("See certain course: 2");
-                System.out.println("See certain player: 3");
-                System.out.println("See certain hole: 4");
+                if (!course) {
+                    System.out.println("See certain course: 2");
+                } if (!player) {
+                    System.out.println("See certain player: 3");
+                } if (!hole) {
+                    System.out.println("See certain hole: 4");
+                }
                 System.out.println("View Rounds: 5");
-                System.out.println("Quit: 6");
+                System.out.println("Quit: 6\n");
                 int choice = scan.nextInt();
+                scan.nextLine();
                 switch (choice) {
                     case (1):
-                        System.out.println("What would you like to sort by?");
+                        System.out.println("\nWhat would you like to sort by?");
                         System.out.println("Sort by Date: 'Date'");
-                        System.out.println("Sort by Course: 'Course'");
+                        if (!course) {
+                            System.out.println("Sort by Course: 'Course'");
+                        }
                         System.out.println("Sort by Score: 'Score'");
-                        System.out.println("Sort by Name: 'Name'");
+                        if (!player) {
+                            System.out.println("Sort by Player Name: 'Name'\n");
+                        }
                         sort(scan.next(), rounds);
                         break;
                     case (2):
                         System.out.println("What course would like to view? (South Mountain),(Hanover Community Center), (Covered Bridge Park), (Camp Olympic Park)");
-                        scan.next();
-                        ArrayList<Round> roundsCourses = new ArrayList<>();
-                        String course = scan.nextLine();
-                        for (int i = 0; i < rounds.size(); i++) {
-                            if (rounds.get(i).getCourseName().equals(course)) {
-                                roundsCourses.add(rounds.get(i));
-                            }
-                        }// TODO: LALALA
+                        String courseName = scan.nextLine();
+                        rounds = specificCourse(rounds,courseName);
+                        course = true;
+                        break;
+                    case (3):
+                        System.out.println("What player would like to view? (Isaac Levine),(Mark Latvakoski), (Isaac Hanish), (Jeremy Cohen), (Ed Crabbe)");
+                        String playerName = scan.nextLine();
+                        rounds = specificPlayer(rounds,playerName);
+                        player = true;
                         break;
                     case (5):
                         printRounds(rounds);
@@ -156,7 +169,8 @@ public class Test {
         for (Round i: rounds) {
             System.out.println(i);
         }
-    } public static ArrayList<Round> removePartial (ArrayList<Round>  rounds) {
+    } 
+    public static ArrayList<Round> removePartial (ArrayList<Round>  rounds) {
         ArrayList<Round> removed = new ArrayList<>();
         boolean partial = false;
         for (int i = 0; i < rounds.size(); i++) {
@@ -170,4 +184,24 @@ public class Test {
         } 
         return removed;
     }
+    public static ArrayList<Round> specificCourse (ArrayList<Round>  totalRounds, String courseName) {
+        ArrayList<Round> newRounds = new ArrayList<Round> ();
+        for (int i = 0; i < totalRounds.size(); i++) {
+            if (totalRounds.get(i).getCourseName().equals(courseName)) {
+                System.out.println("test");
+                newRounds.add(totalRounds.get(i));
+            }
+        } return newRounds;
+    }
+    public static ArrayList<Round> specificPlayer (ArrayList<Round>  totalRounds, String playerName) {
+        ArrayList<Round> newRounds = new ArrayList<Round> ();
+        for (int i = 0; i < totalRounds.size(); i++) {
+            System.out.println(playerName);
+            System.out.println(totalRounds.get(i).getPlayer().equals(playerName));
+            if (totalRounds.get(i).getPlayer().equals(playerName)) {
+                newRounds.add(totalRounds.get(i));
+            }
+        } return newRounds;
+    } 
+    
 }

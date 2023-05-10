@@ -122,4 +122,9 @@ public class Round {
         }
         return s;
     }
+    public String toString (int hole) {
+        String s = String.format("%-15s%-20s%-30s%-15s", date, player, courseName, getTotalScoreString());
+        s += String.format("%-4d", getScore(hole - 1));
+        return s;
+    }
 }
