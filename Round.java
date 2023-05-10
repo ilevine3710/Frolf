@@ -118,13 +118,13 @@ public class Round {
     public String toString () {
         String s = String.format("%-15s%-20s%-30s%-15s", date, player, courseName, getTotalScoreString());
         for (int i = 0; i < holes.length; i++) {
-            s += String.format("%-4d", getScore(i));
+            s += String.format("%-7s", getScore(i));
         }
         return s;
     }
     public String toString (int hole) {
         String s = String.format("%-15s%-20s%-30s%-15s", date, player, courseName, getTotalScoreString());
-        s += String.format("%-4d", getScore(hole - 1));
+        s += String.format("%-7d", getScore(hole - 1));
         return s;
     }
 }

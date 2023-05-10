@@ -40,7 +40,7 @@
 09/03/2022,Mark Latvakoski,South Mountain,4,4,3,5,4,4,6,3,4,5,4,4,4,4,3,4,4,4
 09/03/2022,Isaac Levine,South Mountain,5,5,4,3,4,5,4,3,4,3,4,3,4,5,5,3,4,3
 09/03/2022,Isaac Hanish,South Mountain,3,4,3,3,4,3,3,5,4,5,4,5,4,5,6,5,4,4
-09/16/2022,Jeremy,South Mountain,5,4,5,4,5,4,4,3,4,4,4,4,3,5,6,4,5,4
+09/16/2022,Jeremy Cohen,South Mountain,5,4,5,4,5,4,4,3,4,4,4,4,3,5,6,4,5,4
 09/16/2022,Mark Latvakoski,South Mountain,3,3,4,4,5,3,3,3,4,3,4,4,4,4,6,3,5,3
 09/16/2022,Isaac Levine,South Mountain,4,4,5,3,4,4,5,4,5,4,3,3,5,4,6,5,5,3
 09/16/2022,Isaac Hanish,South Mountain,4,4,5,2,4,4,4,4,4,5,3,3,3,3,4,6,3,4

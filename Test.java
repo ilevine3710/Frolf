@@ -11,7 +11,6 @@ public class Test {
         boolean quit = false;
         boolean course = false;
         boolean player = false;
-        boolean hole = false;
         do {
             try {
                 System.out.println("\nChoose an option: ");
@@ -20,9 +19,9 @@ public class Test {
                     System.out.println("See certain course: 2");
                 } if (!player) {
                     System.out.println("See certain player: 3");
-                } if (!hole) {
-                    System.out.println("See certain hole: 4");
                 }
+                    System.out.println("See certain hole: 4");
+                
                 System.out.println("View Rounds: 5");
                 System.out.println("Quit: 6\n");
                 int choice = scan.nextInt();
@@ -52,6 +51,20 @@ public class Test {
                         rounds = specificPlayer(rounds,playerName);
                         player = true;
                         break;
+                    case (4):
+                        System.out.println("Enter a hole number (1-18)");
+                        try {
+                            int hole = scan.nextInt();
+                            if (hole < 1 || hole > 18) {
+                                throw new Exception();
+                            }
+                            printRounds(rounds,hole);
+
+                        } catch (Exception e){
+                            System.out.println("Invalid entry");
+                        }
+                        break;
+                        
                     case (5):
                         printRounds(rounds);
                         break;
@@ -164,11 +177,20 @@ public class Test {
         System.out.println("\t\t\t\t\t\t\t\t\t\tHole Number:");
         System.out.print(String.format("%-15s%-20s%-30s%-15s", "Date", "Player", "Course","Total Score"));
         for (int i = 1; i < 19; i++) {
-            System.out.print(String.format("%-4d", i));
+            System.out.print(String.format("%-7d", i));
         } System.out.println();
         for (Round i: rounds) {
             System.out.println(i);
         }
+        System.out.println(averageScores(rounds));
+    } 
+    public static void printRounds(ArrayList<Round>  rounds, int hole) {
+        System.out.println("\t\t\t\t\t\t\t\t\t\tHole Number:");
+        System.out.print(String.format("%-15s%-20s%-30s%-15s", "Date", "Player", "Course","Total Score"));
+        System.out.println(String.format("%-7d", hole));
+        for (Round i: rounds) {
+            System.out.println(i.toString(hole));
+        } System.out.println(averageScores(rounds,hole));
     } 
     public static ArrayList<Round> removePartial (ArrayList<Round>  rounds) {
         ArrayList<Round> removed = new ArrayList<>();
@@ -188,7 +210,6 @@ public class Test {
         ArrayList<Round> newRounds = new ArrayList<Round> ();
         for (int i = 0; i < totalRounds.size(); i++) {
             if (totalRounds.get(i).getCourseName().equals(courseName)) {
-                System.out.println("test");
                 newRounds.add(totalRounds.get(i));
             }
         } return newRounds;
@@ -196,12 +217,30 @@ public class Test {
     public static ArrayList<Round> specificPlayer (ArrayList<Round>  totalRounds, String playerName) {
         ArrayList<Round> newRounds = new ArrayList<Round> ();
         for (int i = 0; i < totalRounds.size(); i++) {
-            System.out.println(playerName);
-            System.out.println(totalRounds.get(i).getPlayer().equals(playerName));
             if (totalRounds.get(i).getPlayer().equals(playerName)) {
                 newRounds.add(totalRounds.get(i));
             }
         } return newRounds;
     } 
-    
+    public static String averageScores (ArrayList<Round>  rounds) {
+        String s = "\t\t\t\t\t\t\t\t\t\t";
+        double total = 0;
+        for (int i = 0; i < 18; i++) {
+            for (int j = 0; j < rounds.size(); j++) {
+                total += rounds.get(j).getHoles()[i].getScore();
+            } total /= (rounds.size() * 1.0);
+            s += String.format("%-6.2f ", total);
+        }
+        return s;
+    } 
+    public static String averageScores (ArrayList<Round>  rounds, int hole) {
+        String s = "\t\t\t\t\t\t\t\t\t\t";
+        double total = 0;
+        for (int j = 0; j < rounds.size(); j++) {
+            total += rounds.get(j).getHoles()[hole - 1].getScore();
+        } total /= (rounds.size() * 1.0);
+        s += String.format("%-6.2f ", total);
+        
+        return s;
+    }
 }
