@@ -114,7 +114,6 @@ public class Round {
         }
         return s;
     }
-
     public String toString () {
         String s = String.format("%-15s%-20s%-30s%-15s", date, player, courseName, getTotalScoreString());
         for (int i = 0; i < holes.length; i++) {
