@@ -80,3 +80,17 @@
 03/26/2023,Isaac Levine,South Mountain,3,0,0,3,3,5,3,4,3,4,3,4,5,4,6,3,3,4
 03/26/2023,Mark Latvakoski,South Mountain,4,0,0,3,3,3,4,3,3,4,3,3,2,5,4,3,4,4
 03/26/2023,Isaac Hanish,South Mountain,4,0,0,6,3,3,4,5,3,3,4,4,4,4,5,4,3,4
+06/28/2023,Isaac Levine,South Mountain,5,2,3,3,4,4,3,3,4,4,3,4,3,3,5,3,3,3
+06/28/2023,Mark Latvakoski,South Mountain,3,4,4,3,5,4,5,3,4,4,3,4,3,4,4,5,3,3
+06/24/2023,Isaac Levine,Covered Bridge Park,2,3,2,3,4,4,3,3,4,3,3,2,3,4,4,4,3,4
+06/24/2023,Mark Latvakoski,Covered Bridge Park,3,4,4,5,4,3,3,4,4,3,3,3,3,3,5,7,2,3
+06/22/2023,Isaac Levine,South Mountain,4,3,3,3,5,3,3,3,3,4,4,3,5,4,4,5,4,4
+06/22/2023,Mark Latvakoski,South Mountain,3,3,6,2,3,3,4,4,4,3,3,3,4,5,5,3,4,4
+06/20/2023,Mark Latvakoski,South Mountain,3,3,4,2,4,3,3,3,4,3,3,3,4,4,5,4,3,4
+06/16/2023,Isaac Levine,South Mountain,4,5,5,3,5,2,4,4,4,4,3,4,3,3,6,2,4,4
+06/16/2023,Mark Latvakoski,South Mountain,3,3,3,3,3,3,4,4,4,3,4,4,3,3,4,3,3,2
+06/16/2023,Jeremy Cohen,South Mountain,4,3,4,3,3,3,5,4,4,5,4,4,3,3,4,3,4,5
+06/15/2023,Isaac Levine,South Mountain,3,2,4,3,5,4,4,3,4,3,3,4,4,4,4,4,3,5
+06/15/2023,Mark Latvakoski,South Mountain,3,5,4,3,4,3,3,3,3,5,2,4,4,3,4,3,5,3
+06/13/2023,Isaac Levine,South Mountain,4,5,5,4,4,3,3,2,4,5,3,2,3,4,3,3,3,4
+06/13/2023,Mark Latvakoski,South Mountain,3,3,3,3,4,4,4,3,4,4,4,4,3,4,4,4,4,4

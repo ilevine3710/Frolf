@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
@@ -23,9 +24,15 @@ public class Test {
                     System.out.println("See certain hole: 4");
                 
                 System.out.println("View Rounds: 5");
-                System.out.println("Quit: 6\n");
-                int choice = scan.nextInt();
-                scan.nextLine();
+                System.out.println("Breakdown: 6");
+                System.out.println("Reset Rounds: 7");
+                System.out.println("Quit: 8\n");
+                int choice = 0;
+                try {
+                    choice = scan.nextInt();
+                } catch (Exception e){
+                    String junk = scan.next();
+                } scan.nextLine();
                 switch (choice) {
                     case (1):
                         System.out.println("\nWhat would you like to sort by?");
@@ -69,13 +76,121 @@ public class Test {
                         printRounds(rounds);
                         break;
                     case (6):
+                        rounds = readFiles();
+                        rounds = removePartial(rounds);
+                        player = false;
+                        course = false;
+                        System.out.println("What player would like to view? (Isaac Levine),(Mark Latvakoski), (Isaac Hanish), (Jeremy Cohen), (Ed Crabbe)");
+                        playerName = scan.nextLine();
+                        rounds = specificPlayer(rounds,playerName);
+                        System.out.println("What course would like to view? (South Mountain),(Hanover Community Center), (Covered Bridge Park), (Camp Olympic Park)");
+                        courseName = scan.nextLine();
+                        rounds = specificCourse(rounds,courseName);
+
+                        double [] std = getSTDArray(rounds);
+                        double [] averages = getAverageArray(rounds);
+                        ArrayList<Integer> values = new ArrayList<>();
+                        double value = 0;
+
+                        System.out.println(playerName + "\'s Breakdown at " + courseName + ":\n");
+                        value = averages[0];
+                        values.add(0);
+                        for (int i = 1; i < 18; i++) {
+                            if (value == averages[i]) {
+                                values.add(i);
+                            } else if (value > averages[i]) {
+                                value = averages[i];
+                                values.clear();
+                                values.add(i);
+                            }
+                        }
+                        System.out.print("Best Hole(s):");
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print("\t" + (values.get(i) + 1));
+                        }
+                        System.out.println("\nAverage:\t" + String.format("%.2f",averages[values.get(0)]));
+
+                        value = averages[0];
+                        values.clear();
+                        values.add(0);
+                        for (int i = 1; i < 18; i++) {
+                            if (value == averages[i]) {
+                                values.add(i);
+                            } else if (value < averages[i]) {
+                                value = averages[i];
+                                values.clear();
+                                values.add(i);
+                            }
+                        }
+                        System.out.print("\nWorst Hole(s):");
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print("\t" + (values.get(i) + 1));
+                        }
+                        System.out.println("\nAverage:\t" + String.format("%.1f",averages[values.get(0)]));
+
+                        value = std[0];
+                        values.clear();
+                        values.add(0);
+                        for (int i = 1; i < 18; i++) {
+                            if (value == std[i]) {
+                                values.add(i);
+                            } else if (value > std[i]) {
+                                value = std[i];
+                                values.clear();
+                                values.add(i);
+                            }
+                        }
+                        System.out.print("\nMost Consistent Hole(s):");
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print("\t" + (values.get(i) + 1));
+                        }
+                        System.out.print(String.format("%-32s","\nAverage(s):"));
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print(String.format("%-8.1f",averages[values.get(i)]));
+                        }
+                        System.out.println("\nStandard Deviation:" + String.format("%-10.1f",std[values.get(0)]));
+
+                        value = std[0];
+                        values.clear();
+                        values.add(0);
+                        for (int i = 1; i < 18; i++) {
+                            if (value == std[i]) {
+                                values.add(i);
+                            } else if (value < std[i]) {
+                                value = std[i];
+                                values.clear();
+                                values.add(i);
+                            }
+                        }
+                        System.out.print("\nLeast Consistent Hole(s):");
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print("\t" + (values.get(i) + 1));
+                        }
+                        System.out.print(String.format("%-32s","\nAverage(s):"));
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print(String.format("%-8.1f",averages[values.get(i)]));
+                        }
+                        System.out.println("\nStandard Deviation:" + String.format("%-10.2f",std[values.get(0)]));
+                        
+
+                        rounds = readFiles();
+                        rounds = removePartial(rounds);
+                        break;
+                    case (7):
+                        rounds = readFiles();
+                        rounds = removePartial(rounds);
+                        player = false;
+                        course = false;
+                        break;
+                    case (8):
                         quit = true;
                         break;
                     default:
+                    
                         System.out.println("Invalid choice");
                         break;
                 }
-            } catch (Exception e){
+            } catch (InputMismatchException e){
                 System.out.println("Invalid choice");
             }
         } while (!quit);
@@ -174,10 +289,10 @@ public class Test {
         }
     }
     public static void printRounds(ArrayList<Round>  rounds) {
-        System.out.println("\t\t\t\t\t\t\t\t\t\tHole Number:");
-        System.out.print(String.format("%-15s%-20s%-30s%-15s", "Date", "Player", "Course","Total Score"));
+        System.out.println("\t\t\t\t\t\t\t\t\tHole Number:");
+        System.out.print(String.format("%-12s%-18s%-30s%-15s", "Date", "Player", "Course","Total Score"));
         for (int i = 1; i < 19; i++) {
-            System.out.print(String.format("%-7d", i));
+            System.out.print(String.format("%-6d", i));
         } System.out.println();
         for (Round i: rounds) {
             System.out.println(i);
@@ -185,9 +300,9 @@ public class Test {
         System.out.println(averageScores(rounds));
     } 
     public static void printRounds(ArrayList<Round>  rounds, int hole) {
-        System.out.println("\t\t\t\t\t\t\t\t\t\tHole Number:");
-        System.out.print(String.format("%-15s%-20s%-30s%-15s", "Date", "Player", "Course","Total Score"));
-        System.out.println(String.format("%-7d", hole));
+        System.out.println("\t\t\t\t\t\t\t\t\tHole Number:");
+        System.out.print(String.format("%-12s%-18s%-30s%-15s", "Date", "Player", "Course","Total Score"));
+        System.out.println(String.format("%-6d", hole));
         for (Round i: rounds) {
             System.out.println(i.toString(hole));
         } System.out.println(averageScores(rounds,hole));
@@ -223,24 +338,60 @@ public class Test {
         } return newRounds;
     } 
     public static String averageScores (ArrayList<Round>  rounds) {
-        String s = "\t\t\t\t\t\t\t\t\t\t";
+        String s = "\t\t\t\t\t\t\t\t\t  ";
         double total = 0;
         for (int i = 0; i < 18; i++) {
             for (int j = 0; j < rounds.size(); j++) {
-                total += rounds.get(j).getHoles()[i].getScore();
+                total += rounds.get(j).getScore(i);
             } total /= (rounds.size() * 1.0);
-            s += String.format("%-6.2f ", total);
+            s += String.format("%-5.1f ", total);
+            total = 0;
         }
         return s;
     } 
     public static String averageScores (ArrayList<Round>  rounds, int hole) {
-        String s = "\t\t\t\t\t\t\t\t\t\t";
+        String s = "\t\t\t\t\t\t\t\t\t  ";
         double total = 0;
         for (int j = 0; j < rounds.size(); j++) {
             total += rounds.get(j).getHoles()[hole - 1].getScore();
         } total /= (rounds.size() * 1.0);
-        s += String.format("%-6.2f ", total);
+        s += String.format("%-5.1f ", total);
         
         return s;
+    }
+    public static double [] getAverageArray (ArrayList<Round>  rounds)  {
+        double [] averages = new double [18];
+        for (int i = 0; i < rounds.size(); i++) {
+            for (int j = 0; j < 18; j++) {
+                averages [j] += rounds.get(i).getScore(j);
+            }
+        }
+        for (int i = 0; i < 18; i++) {
+            averages [i] /= rounds.size();
+        }
+        return averages;
+    }
+    public static double [] getSTDArray (ArrayList<Round>  rounds)  {
+        double [] std = new double [18];
+        double [] junk = new double [rounds.size()];
+        for (int i = 0; i < std.length; i++) {
+            for (int j = 0; j < rounds.size(); j++) {
+                junk [j] = rounds.get(j).getScore(i);
+            } 
+            std [i] = STD(junk);
+        }
+        return std;
+    }
+    public static double STD (double [] std) {
+        double sum = 0.0, standardDeviation = 0.0;
+        int length = std.length;
+        for(double num : std) {
+            sum += num;
+        }
+        double mean = sum / length;
+        for(double num: std) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+        return Math.sqrt(standardDeviation/length);
     }
 }

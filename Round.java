@@ -115,15 +115,15 @@ public class Round {
         return s;
     }
     public String toString () {
-        String s = String.format("%-15s%-20s%-30s%-15s", date, player, courseName, getTotalScoreString());
+        String s = String.format("%-12s%-18s%-30s%-15s", date, player, courseName, getTotalScoreString());
         for (int i = 0; i < holes.length; i++) {
-            s += String.format("%-7s", getScore(i));
+            s += String.format("%-6s", getScore(i));
         }
         return s;
     }
     public String toString (int hole) {
-        String s = String.format("%-15s%-20s%-30s%-15s", date, player, courseName, getTotalScoreString());
-        s += String.format("%-7d", getScore(hole - 1));
+        String s = String.format("%-12s%-18s%-30s%-15s", date, player, courseName, getTotalScoreString());
+        s += String.format("%-6d", getScore(hole - 1));
         return s;
     }
 }
