@@ -126,7 +126,7 @@ public class Test {
                         for (int i = 0; i < values.size(); i++) {
                             System.out.print("\t" + (values.get(i) + 1));
                         }
-                        System.out.println("\nAverage:\t" + String.format("%.1f",averages[values.get(0)]));
+                        System.out.println("\nAverage:\t" + String.format("%.2f",averages[values.get(0)]));
 
                         value = std[0];
                         values.clear();
@@ -148,7 +148,7 @@ public class Test {
                         for (int i = 0; i < values.size(); i++) {
                             System.out.print(String.format("%-8.1f",averages[values.get(i)]));
                         }
-                        System.out.println("\nStandard Deviation:" + String.format("%-10.1f",std[values.get(0)]));
+                        System.out.println(String.format("\n%-31s%.1f","Standard Deviation:",std[values.get(0)]));
 
                         value = std[0];
                         values.clear();
@@ -170,9 +170,24 @@ public class Test {
                         for (int i = 0; i < values.size(); i++) {
                             System.out.print(String.format("%-8.1f",averages[values.get(i)]));
                         }
-                        System.out.println("\nStandard Deviation:" + String.format("%-10.2f",std[values.get(0)]));
-                        
+                        System.out.println(String.format("\n%-31s%.1f","Standard Deviation:",std[values.get(0)]));
 
+                        value = 0;
+                        String score = "";
+                        for (int i = 0; i < rounds.size(); i++) {
+                            value += rounds.get(i).getFinalScore();
+                        } value /=  rounds.size();
+                        if (value > 0) {
+                            score = "+" + String.format("%.2f",value); 
+                        } else if (value == 0) {
+                            score = "E";
+                        } else {
+                            score = String.format("%.2f",value);
+                        }
+                        System.out.println("\nAverage Total Score: " + score);
+
+                        sort("Score", rounds);
+                        printRounds(rounds);
                         rounds = readFiles();
                         rounds = removePartial(rounds);
                         break;
