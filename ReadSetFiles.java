@@ -5,8 +5,6 @@ import java.io.FileWriter;
 
 public class ReadSetFiles {
     public static void main(String[] args) {
-        Round [] t = readCSVFiles("123.csv");
-        saveFiles("Rounds.txt", t);
     }
     public static void saveFiles (String filename, Round [] total) {
         File file = new File(filename);

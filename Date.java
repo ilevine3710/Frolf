@@ -38,7 +38,6 @@ public class Date implements Comparable<Date>{
     public int getMonth() { return month;}
     public int getDay() { return day;}
     public int getYear() { return year;}
-
     public void setMonth(int m) throws InvalidDateTimeException{
         if(m < 1 || m > 12)
             throw new InvalidDateTimeException("Invalid month. Month should be from 1 to 12.");
@@ -54,11 +53,9 @@ public class Date implements Comparable<Date>{
                 throw new InvalidDateTimeException("Invalid year. Year should be from 1970 to 2030.");
         year = y;
     }
-
     public String toString(){
         return String.format("%02d/%02d/%04d", month, day, year);
     }
-
     public int compareTo(Date date){
         if(this.getYear() == date.getYear()){
             if(this.getMonth() == date.getMonth()){

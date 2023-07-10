@@ -1,6 +1,5 @@
 import java.io.File;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
@@ -201,15 +200,14 @@ public class Test {
                         quit = true;
                         break;
                     default:
-                    
                         System.out.println("Invalid choice");
                         break;
                 }
-            } catch (InputMismatchException e){
-                System.out.println("Invalid choice");
+            } catch (Exception e){
+                System.out.println("??");
             }
         } while (!quit);
-        
+        scan.close();
     } 
     public static ArrayList<Round> readFiles () {
         ArrayList<Round> rounds;
