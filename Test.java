@@ -79,9 +79,11 @@ public class Test {
                         rounds = removePartial(rounds);
                         player = false;
                         course = false;
-                        System.out.println("What player would like to view? (Isaac Levine),(Mark Latvakoski), (Isaac Hanish), (Jeremy Cohen), (Ed Crabbe)");
+                        System.out.println("What player would like to view? (Isaac Levine),(Mark Latvakoski), (Isaac Hanish), (Jeremy Cohen), (Ed Crabbe), (All Players)");
                         playerName = scan.nextLine();
-                        rounds = specificPlayer(rounds,playerName);
+                        if (!playerName.equals("All Players")) {
+                            rounds = specificPlayer(rounds,playerName);
+                        }
                         System.out.println("What course would like to view? (South Mountain),(Hanover Community Center), (Covered Bridge Park), (Camp Olympic Park)");
                         courseName = scan.nextLine();
                         rounds = specificCourse(rounds,courseName);
@@ -183,7 +185,41 @@ public class Test {
                         } else {
                             score = String.format("%.2f",value);
                         }
-                        System.out.println("\nAverage Total Score: " + score);
+                        System.out.println("\nAverage Total Score:\t" + score);
+
+                        int [] birdies = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+                        for (int i = 0; i < rounds.size(); i++) {
+                            for (int j = 0; j < 18; j++) {
+                                if (rounds.get(i).getPar(j) - rounds.get(i).getScore(j) > 0) {
+                                    birdies [j] += 1;
+                                }
+                            }
+                        }
+                        value = birdies[0];
+                        values.clear();
+                        for (int i = 1; i < 18; i++) {
+                            if (value == birdies[i]) {
+                                values.add(i);
+                            } else if (value < birdies[i]) {
+                                value = birdies[i];
+                                values.clear();
+                                values.add(i);
+                            }
+                        }
+                        System.out.print("\nMost Commonly Birdied Hole(s): ");
+                        for (int i = 0; i < values.size(); i++) {
+                            System.out.print("\t" + (values.get(i) + 1));
+                        }
+                        System.out.println("\nNumber of Birdies:\t\t" + (int)value);
+
+                        System.out.print("\nHoles never Birdied: ");
+                        for (int i = 0; i < 18; i++) {
+                            if (birdies[i] == 0) {
+                                System.out.print((i + 1) + "  ");
+                                
+                            }
+                        } System.out.println();
+                       
 
                         sort("Score", rounds);
                         printRounds(rounds);
