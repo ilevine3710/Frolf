@@ -92,7 +92,7 @@ public class Test {
                         double [] averages = getAverageArray(rounds);
                         ArrayList<Integer> values = new ArrayList<>();
                         double value = 0;
-
+                        
                         System.out.println(playerName + "\'s Breakdown at " + courseName + ":\n");
                         value = averages[0];
                         values.add(0);
@@ -207,6 +207,9 @@ public class Test {
                             }
                         }
                         System.out.print("\nMost Commonly Birdied Hole(s): ");
+                        if (value == 0) {
+                            values.clear();
+                        }
                         for (int i = 0; i < values.size(); i++) {
                             System.out.print("\t" + (values.get(i) + 1));
                         }
