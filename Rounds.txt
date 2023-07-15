@@ -94,3 +94,7 @@
 06/15/2023,Mark Latvakoski,South Mountain,3,5,4,3,4,3,3,3,3,5,2,4,4,3,4,3,5,3
 06/13/2023,Isaac Levine,South Mountain,4,5,5,4,4,3,3,2,4,5,3,2,3,4,3,3,3,4
 06/13/2023,Mark Latvakoski,South Mountain,3,3,3,3,4,4,4,3,4,4,4,4,3,4,4,4,4,4
+07/14/2023,Isaac Levine,Camp Olympic Park,3,3,2,4,4,3,3,4,4,3,4,4,3,2,3,3,4,4
+07/14/2023,Mark L,Camp Olympic Park,4,4,4,3,3,3,3,3,3,4,3,4,3,3,2,3,4,5
+07/10/2023,Isaac Levine,South Mountain,2,4,3,5,4,3,4,3,4,3,4,4,2,4,5,4,3,4
+07/10/2023,Mark L,South Mountain,5,3,4,3,3,3,4,3,4,3,3,5,2,5,4,3,4,3

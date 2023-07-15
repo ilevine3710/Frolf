@@ -4,7 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 
 public class ReadSetFiles {
-    public static void main(String[] args) {
+    public static void main(String[] args) {;
+        saveFiles("Rounds.txt", readCSVFiles("beep.csv"));
     }
     public static void saveFiles (String filename, Round [] total) {
         File file = new File(filename);
@@ -22,7 +23,6 @@ public class ReadSetFiles {
         } catch(FileNotFoundException e) {
             System.out.println("Cannot write to file.");
         } catch (Exception e) {
-
         }
     }
     public static Round [] readCSVFiles (String filename) {
@@ -34,13 +34,8 @@ public class ReadSetFiles {
             String [] file = new String [100];
             int count = 0;
             while (scan.hasNextLine()) { 
-                if (count < 2) {
-                    scan.nextLine();
-                    count ++;
-                } else {
-                    file [length] = scan.nextLine();
-                    length++;
-                }
+                file [length] = scan.nextLine();
+                length++;
             }
             rounds = new Round [length];
             for (int i = 0; i < length; i ++) {
