@@ -1,3 +1,5 @@
+package com.frolf;
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;

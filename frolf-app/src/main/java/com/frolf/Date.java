@@ -1,3 +1,4 @@
+package com.frolf;
 public class Date implements Comparable<Date>{
     private int month;
     private int day;

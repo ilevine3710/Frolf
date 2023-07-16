@@ -1,3 +1,5 @@
+package com.frolf;
+
 public class InvalidDateTimeException extends Exception{
     public InvalidDateTimeException(){
         super("Invalid Date Format.");

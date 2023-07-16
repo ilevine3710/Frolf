@@ -1,3 +1,5 @@
+package com.frolf;
+
 public class CourseNotFoundException extends Exception{
     public CourseNotFoundException(){
         super("Invalid Course Name");

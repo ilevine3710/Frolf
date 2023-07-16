@@ -1,3 +1,5 @@
+package com.frolf;
+
 public class Hole {
     private int par;
     private int score;

@@ -1,0 +1,30 @@
+05/01/2023,Isaac H,South Mountain,3,4,4,3,5,3,4,3,3,3,3,4,3,4,7,4,4,4
+05/01/2023,Mark L,South Mountain,3,4,4,4,3,3,3,4,4,2,3,2,3,4,3,4,4,4
+04/09/2023,Germ,Covered Bridge Park,4,3,4,3,5,4,4,3,5,3,3,3,3,3,5,4,4,5
+04/09/2023,Isaac Levine,Covered Bridge Park,3,4,4,5,3,4,3,4,3,3,4,2,4,5,4,3,3,4
+04/09/2023,Isaac H,Covered Bridge Park,3,4,3,2,4,2,5,3,3,3,3,4,4,3,5,3,3,3
+04/09/2023,Mark L,Covered Bridge Park,3,4,3,4,6,3,3,3,6,3,4,2,4,4,6,3,3,7
+04/08/2023,Germ,Covered Bridge Park,3,4,4,3,4,4,3,4,4,4,3,2,3,4,3,3,3,3
+04/08/2023,Isaac Levine,Covered Bridge Park,3,3,3,3,5,4,4,6,4,3,5,3,4,3,4,3,2,3
+04/08/2023,Isaac H,Covered Bridge Park,3,4,2,4,4,4,4,3,4,3,3,3,3,3,4,3,4,3
+04/08/2023,Mark L,Covered Bridge Park,4,5,3,4,3,4,3,3,5,3,3,3,4,3,4,3,4,3
+04/01/2023,Germ,Covered Bridge Park,4,3,3,4,3,3,3,3,3,4,4,3,3,2,4,2,2,3
+04/01/2023,Isaac Levine,Covered Bridge Park,5,3,3,3,5,4,4,4,3,3,3,3,3,3,3,3,3,4
+04/01/2023,Isaac H,Covered Bridge Park,4,3,4,3,4,3,3,3,4,5,3,4,4,3,6,3,3,3
+04/01/2023,Mark L,Covered Bridge Park,4,4,3,4,4,4,5,4,3,4,2,3,3,2,3,4,4,4
+03/29/2023,Germ,Hanover Community Center,4,4,4,3,7,4,5,5,4,4,4,4,4,7,4,6,4,4
+03/29/2023,Isaac Levine,Hanover Community Center,4,4,4,4,4,3,5,5,4,4,3,4,3,6,4,5,5,3
+03/29/2023,Isaac H,Hanover Community Center,5,4,4,4,7,5,4,5,5,3,4,5,4,6,3,5,3,3
+03/29/2023,Mark L,Hanover Community Center,4,4,3,3,7,4,4,4,3,4,3,3,4,6,4,3,3,4
+03/28/2023,Germ,South Mountain,0,0,0,3,4,6,4,4,4,4,3,3,4,4,5,4,4,4
+03/28/2023,Isaac Levine,South Mountain,0,0,0,4,3,4,4,4,3,5,2,4,3,4,4,4,3,4
+03/28/2023,Isaac H,South Mountain,0,0,0,4,3,5,5,2,4,3,3,4,3,4,4,4,5,3
+03/26/2023,Germ,South Mountain,3,0,0,4,4,3,4,3,4,3,3,5,4,4,4,4,4,4
+03/26/2023,Isaac Levine,South Mountain,3,0,0,3,3,5,3,4,3,4,3,4,5,4,6,3,3,4
+03/26/2023,Mark L,South Mountain,4,0,0,3,3,3,4,3,3,4,3,3,2,5,4,3,4,4
+03/26/2023,Isaac H,South Mountain,4,0,0,6,3,3,4,5,3,3,4,4,4,4,5,4,3,4
+03/23/2023,Germ,Hanover Community Center,5,3,4,3,5,3,4,3,4,3,3,4,3,5,4,6,0,0
+03/23/2023,Isaac Levine,Hanover Community Center,5,4,4,3,5,5,4,3,5,4,4,4,4,4,4,5,0,0
+03/23/2023,Mark L,Hanover Community Center,5,3,4,3,6,3,3,3,3,3,3,3,3,4,4,5,0,0
+02/09/2023,Germ,Hanover Community Center,5,4,4,4,4,5,4,3,3,4,3,4,5,5,4,4,3,4
+02/09/2023,Isaac Levine,Hanover Community Center,4,3,5,3,6,3,3,4,4,4,4,4,4,6,3,4,3,4
